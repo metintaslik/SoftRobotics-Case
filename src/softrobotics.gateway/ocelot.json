@@ -1,0 +1,11 @@
+﻿{
+  "Routes": [
+    {
+      "RequestIdKey": "OcRequestId"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:32785",
+    "RequestIdKey": "OcRequestId"
+  }
+}
