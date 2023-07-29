@@ -3,9 +3,35 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "devops", "devops", "{47E1DDD5-E242-4DF9-A245-17F6259C3938}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "elkstack", "elkstack", "{56F7257D-67B4-41B0-B17E-9117AC0FC738}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\elkstack\docker-compose.yml = ..\..\elkstack\docker-compose.yml
+		..\..\elkstack\logstash.conf = ..\..\elkstack\logstash.conf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{582576C8-B842-40B2-A390-BA385C2EA5E2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "softrobotics.gateway", "src\softrobotics.gateway\softrobotics.gateway.csproj", "{154FD129-4B75-4615-A6E5-37DE080ED1A6}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{154FD129-4B75-4615-A6E5-37DE080ED1A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{154FD129-4B75-4615-A6E5-37DE080ED1A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{154FD129-4B75-4615-A6E5-37DE080ED1A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{154FD129-4B75-4615-A6E5-37DE080ED1A6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{56F7257D-67B4-41B0-B17E-9117AC0FC738} = {47E1DDD5-E242-4DF9-A245-17F6259C3938}
+		{154FD129-4B75-4615-A6E5-37DE080ED1A6} = {582576C8-B842-40B2-A390-BA385C2EA5E2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FC8AD292-5803-43CD-82FB-FD353AD77693}
