@@ -1,5 +1,5 @@
-﻿using softrobotics.auth.application.Common.Model;
-using softrobotics.auth.domain.Entity;
+﻿using softrobotics.auth.domain.Entity;
+using softrobotics.shared.Models;
 
 namespace softrobotics.auth.application.Common.Interface
 {

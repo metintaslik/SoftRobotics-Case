@@ -1,0 +1,36 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/auth/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 32770
+        }
+      ],
+      "UpstreamPathTemplate": "/api/auth/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "ServiceName": "API.Auth"
+    },
+    {
+      "DownstreamPathTemplate": "/api/profile/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 32770
+        }
+      ],
+      "UpstreamPathTemplate": "/api/profile/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Patch", "Put" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "PQrUv3l2e78zbDmTb6C4G7RvDhJkD6zX",
+        "AllowedScopes": []
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:26147"
+  }
+}

@@ -31,7 +31,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "softrobotics.auth.test", "s
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "communication", "communication", "{9C25EA2E-7619-4138-88A2-15729C5EBE62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "softrobotics.communication.api", "src\communication\softrobotics.communication.api\softrobotics.communication.api.csproj", "{4500E116-34FD-4D81-AC92-863816EB61C8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "softrobotics.communication.api", "src\communication\softrobotics.communication.api\softrobotics.communication.api.csproj", "{4500E116-34FD-4D81-AC92-863816EB61C8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gateway", "gateway", "{BCF61A1F-9BC8-4410-A415-A697BE12C986}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "softrobotics.gateway.ocelot", "src\gateway\softrobotics.gateway.ocelot\softrobotics.gateway.ocelot.csproj", "{7EFF32A7-B086-4E55-9C54-1EEDE9284B9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +71,10 @@ Global
 		{4500E116-34FD-4D81-AC92-863816EB61C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4500E116-34FD-4D81-AC92-863816EB61C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4500E116-34FD-4D81-AC92-863816EB61C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EFF32A7-B086-4E55-9C54-1EEDE9284B9E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EFF32A7-B086-4E55-9C54-1EEDE9284B9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EFF32A7-B086-4E55-9C54-1EEDE9284B9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EFF32A7-B086-4E55-9C54-1EEDE9284B9E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +91,8 @@ Global
 		{A884B977-9471-43F5-AF0D-EAA4704E8ED1} = {3C2F10E9-B7B5-41B5-B142-3422099BA886}
 		{9C25EA2E-7619-4138-88A2-15729C5EBE62} = {582576C8-B842-40B2-A390-BA385C2EA5E2}
 		{4500E116-34FD-4D81-AC92-863816EB61C8} = {9C25EA2E-7619-4138-88A2-15729C5EBE62}
+		{BCF61A1F-9BC8-4410-A415-A697BE12C986} = {582576C8-B842-40B2-A390-BA385C2EA5E2}
+		{7EFF32A7-B086-4E55-9C54-1EEDE9284B9E} = {BCF61A1F-9BC8-4410-A415-A697BE12C986}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FC8AD292-5803-43CD-82FB-FD353AD77693}

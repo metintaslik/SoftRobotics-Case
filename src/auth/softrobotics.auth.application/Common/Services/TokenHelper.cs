@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using softrobotics.auth.application.Common.Interface;
-using softrobotics.auth.application.Common.Model;
 using softrobotics.auth.domain.Entity;
+using softrobotics.shared.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
