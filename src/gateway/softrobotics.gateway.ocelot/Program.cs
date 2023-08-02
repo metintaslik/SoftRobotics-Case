@@ -2,10 +2,20 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Serilog;
+using Serilog.Sinks.Elasticsearch;
 using softrobotics.shared.Models;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+Log.Logger = new LoggerConfiguration()
+               .WriteTo.Elasticsearch(new ElasticsearchSinkOptions(new Uri(builder.Configuration.GetSection("ElasticsearchUrl").Get<string>()!))
+               {
+                   AutoRegisterTemplate = true,
+               })
+               .Enrich.FromLogContext()
+               .CreateLogger();
 
 builder.Configuration.AddJsonFile("ocelot.json", false, false);
 
@@ -32,6 +42,8 @@ builder.Services.AddAuthentication(opt =>
 builder.Services.AddOcelot();
 
 var app = builder.Build();
+
+app.UseSerilog();
 
 app.MapGet("/", () => "Hello World!");
 

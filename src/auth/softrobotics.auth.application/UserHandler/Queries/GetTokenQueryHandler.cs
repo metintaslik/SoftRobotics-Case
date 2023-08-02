@@ -8,7 +8,7 @@ using softrobotics.shared.Models;
 
 namespace softrobotics.auth.application.UserHandler.Queries
 {
-    public class GetTokenQuery : IRequest<Result<TokenDto>>
+    public record GetTokenQuery : IRequest<Result<TokenDto>>
     {
         private string _password;
 

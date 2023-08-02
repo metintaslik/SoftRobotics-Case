@@ -6,7 +6,7 @@ using softrobotics.auth.domain.Entity;
 
 namespace softrobotics.auth.application.UserHandler.Command
 {
-    public class UserActivateCommand : IRequest<Result>
+    public record UserActivateCommand : IRequest<Result>
     {
         public int UserID { get; set; }
         public string UUID { get; set; }

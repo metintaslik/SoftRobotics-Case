@@ -7,5 +7,6 @@ namespace softrobotics.auth.application.Common.Interface
     {
         TokenDto CreateToken(User user);
         string GenerateRefreshToken();
+        int GetClaimUserId();
     }
 }

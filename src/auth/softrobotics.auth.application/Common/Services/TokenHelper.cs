@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using softrobotics.auth.application.Common.Interface;
 using softrobotics.auth.domain.Entity;
@@ -13,10 +14,12 @@ namespace softrobotics.auth.application.Common.Services;
 public class TokenHelper : ITokenHelper
 {
     private readonly IConfiguration configuration;
+    private readonly HttpContext httpContext;
 
-    public TokenHelper(IConfiguration configuration)
+    public TokenHelper(IConfiguration configuration, IHttpContextAccessor accessor)
     {
         this.configuration = configuration;
+        httpContext = accessor.HttpContext;
     }
 
     public TokenDto CreateToken(User user)
@@ -56,5 +59,14 @@ public class TokenHelper : ITokenHelper
         generator.GetBytes(randomNumber);
 
         return Convert.ToBase64String(randomNumber);
+    }
+
+    public int GetClaimUserId()
+    {
+        Claim userIdClaim = httpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+        if (userIdClaim == null || string.IsNullOrEmpty(userIdClaim?.Value)) throw new Exception("User not login.");
+        if (!int.TryParse(userIdClaim.Value, out int userId)) throw new Exception("User ID is not support format.");
+
+        return userId;
     }
 }

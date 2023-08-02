@@ -27,7 +27,8 @@
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "PQrUv3l2e78zbDmTb6C4G7RvDhJkD6zX",
         "AllowedScopes": []
-      }
+      },
+      "ServiceName": "API.Auth.Profile"
     }
   ],
   "GlobalConfiguration": {
