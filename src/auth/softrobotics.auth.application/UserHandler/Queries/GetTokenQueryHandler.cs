@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using softrobotics.auth.application.Common.Interface;
 using softrobotics.auth.application.Common.Model;
 using softrobotics.auth.domain.Entity;
-using softrobotics.shared.Common;
+using softrobotics.shared.Common.Helpers;
 
 namespace softrobotics.auth.application.UserHandler.Queries
 {

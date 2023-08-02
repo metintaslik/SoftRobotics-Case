@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace softrobotics.shared.Common
+namespace softrobotics.shared.Common.Helpers
 {
     public static class EncodingHelper
     {
