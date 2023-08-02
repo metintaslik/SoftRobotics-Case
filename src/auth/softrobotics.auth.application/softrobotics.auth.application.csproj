@@ -25,4 +25,8 @@
 	  <ProjectReference Include="..\softrobotics.auth.domain\softrobotics.auth.domain.csproj" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Folder Include="ProfileHandler\Queries\" />
+	</ItemGroup>
+
 </Project>

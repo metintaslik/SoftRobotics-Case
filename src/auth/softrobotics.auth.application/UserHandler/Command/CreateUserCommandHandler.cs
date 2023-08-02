@@ -9,7 +9,7 @@ using softrobotics.auth.application.UserHandler.Events;
 
 namespace softrobotics.auth.application.UserHandler.Command;
 
-public class CreateUserCommand : IRequest<Result>
+public record CreateUserCommand : IRequest<Result>
 {
     private string _password;
 

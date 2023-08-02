@@ -31,6 +31,8 @@ public static class ApplicationServices
             });
         });
 
+        services.AddHttpContextAccessor();
+
         return services;
     }
 }
