@@ -23,7 +23,7 @@ builder.Services.AddAuthentication(opt =>
                     opt.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuerSigningKey = true,
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(jwtSettings.SecretKey)),
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Convert.ToBase64String(Encoding.ASCII.GetBytes(jwtSettings.SecretKey)))),
                         ValidIssuer = "http://localhost:32770",
                         ValidateIssuer = true,
                         ValidateAudience = false

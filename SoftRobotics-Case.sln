@@ -13,21 +13,25 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "elkstack", "elkstack", "{56
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{582576C8-B842-40B2-A390-BA385C2EA5E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "softrobotics.auth.api", "src\auth\softrobotics.auth.api\softrobotics.auth.api.csproj", "{1C7F2013-A075-4003-BA4B-6D828AE846C1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "softrobotics.auth.api", "src\auth\softrobotics.auth.api\softrobotics.auth.api.csproj", "{1C7F2013-A075-4003-BA4B-6D828AE846C1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "auth", "auth", "{3C2F10E9-B7B5-41B5-B142-3422099BA886}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "softrobotics.auth.application", "src\auth\softrobotics.auth.application\softrobotics.auth.application.csproj", "{768A6927-600E-443A-BAC7-AB0456D5CFF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "softrobotics.auth.application", "src\auth\softrobotics.auth.application\softrobotics.auth.application.csproj", "{768A6927-600E-443A-BAC7-AB0456D5CFF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "softrobotics.auth.domain", "src\auth\softrobotics.auth.domain\softrobotics.auth.domain.csproj", "{1020D39D-0616-4418-A14C-4C89EF5C1E79}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "softrobotics.auth.domain", "src\auth\softrobotics.auth.domain\softrobotics.auth.domain.csproj", "{1020D39D-0616-4418-A14C-4C89EF5C1E79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "softrobotics.auth.infrastructure", "src\auth\softrobotics.auth.infrastructure\softrobotics.auth.infrastructure.csproj", "{AD6446AC-636A-41E8-A872-6263A07C7528}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "softrobotics.auth.infrastructure", "src\auth\softrobotics.auth.infrastructure\softrobotics.auth.infrastructure.csproj", "{AD6446AC-636A-41E8-A872-6263A07C7528}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "softrobotics.shared", "src\shared\softrobotics.shared\softrobotics.shared.csproj", "{1471F671-D433-4C5D-84CB-B706E3F60E48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "softrobotics.shared", "src\shared\softrobotics.shared\softrobotics.shared.csproj", "{1471F671-D433-4C5D-84CB-B706E3F60E48}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{B5164BF9-CE2A-47A1-A7D1-0FB8D4569494}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "softrobotics.auth.test", "src\auth\softrobotics.auth.test\softrobotics.auth.test.csproj", "{A884B977-9471-43F5-AF0D-EAA4704E8ED1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "softrobotics.auth.test", "src\auth\softrobotics.auth.test\softrobotics.auth.test.csproj", "{A884B977-9471-43F5-AF0D-EAA4704E8ED1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "communication", "communication", "{9C25EA2E-7619-4138-88A2-15729C5EBE62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "softrobotics.communication.api", "src\communication\softrobotics.communication.api\softrobotics.communication.api.csproj", "{4500E116-34FD-4D81-AC92-863816EB61C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +63,10 @@ Global
 		{A884B977-9471-43F5-AF0D-EAA4704E8ED1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A884B977-9471-43F5-AF0D-EAA4704E8ED1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A884B977-9471-43F5-AF0D-EAA4704E8ED1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4500E116-34FD-4D81-AC92-863816EB61C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4500E116-34FD-4D81-AC92-863816EB61C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4500E116-34FD-4D81-AC92-863816EB61C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4500E116-34FD-4D81-AC92-863816EB61C8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +81,8 @@ Global
 		{1471F671-D433-4C5D-84CB-B706E3F60E48} = {B5164BF9-CE2A-47A1-A7D1-0FB8D4569494}
 		{B5164BF9-CE2A-47A1-A7D1-0FB8D4569494} = {582576C8-B842-40B2-A390-BA385C2EA5E2}
 		{A884B977-9471-43F5-AF0D-EAA4704E8ED1} = {3C2F10E9-B7B5-41B5-B142-3422099BA886}
+		{9C25EA2E-7619-4138-88A2-15729C5EBE62} = {582576C8-B842-40B2-A390-BA385C2EA5E2}
+		{4500E116-34FD-4D81-AC92-863816EB61C8} = {9C25EA2E-7619-4138-88A2-15729C5EBE62}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FC8AD292-5803-43CD-82FB-FD353AD77693}

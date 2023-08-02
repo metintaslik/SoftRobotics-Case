@@ -3,8 +3,9 @@ using softrobotics.auth.application.Common.Interface;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
 using softrobotics.auth.domain.Entity;
-using softrobotics.shared.Common;
 using softrobotics.auth.application.Common.Model;
+using softrobotics.shared.Common.Helpers;
+using softrobotics.auth.application.UserHandler.Events;
 
 namespace softrobotics.auth.application.UserHandler.Command;
 
@@ -21,11 +22,13 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Resul
 {
     private readonly ISoftRoboticsDbContext context;
     private readonly IMapper mapper;
+    private readonly IMediator mediator;
 
-    public CreateUserCommandHandler(ISoftRoboticsDbContext context, IMapper mapper)
+    public CreateUserCommandHandler(ISoftRoboticsDbContext context, IMapper mapper, IMediator mediator)
     {
         this.context = context;
         this.mapper = mapper;
+        this.mediator = mediator;
     }
 
     public async Task<Result> Handle(CreateUserCommand request, CancellationToken cancellationToken)
@@ -39,15 +42,18 @@ public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, Resul
         await context.Users.AddAsync(entity, cancellationToken);
         await context.SaveToDbAsync(cancellationToken);
 
-        await context.UserValidates.AddAsync(
-            new UserValidate
-            {
-                IsActive = true,
-                UserId = entity.UserId,
-                HashUUID = Guid.NewGuid().ToString().EncodeSHA256(),
-                Created = DateTime.Now,
-            }, cancellationToken);
+        UserValidate userValidateEntity = new()
+        {
+            IsActive = true,
+            UserId = entity.UserId,
+            HashUUID = Guid.NewGuid().ToString().EncodeSHA256(),
+            Created = DateTime.Now,
+        };
+        await context.UserValidates.AddAsync(userValidateEntity, cancellationToken);
         await context.SaveToDbAsync(cancellationToken);
+
+        UserCreatedEvent userCreatedEvent = new(new shared.Models.UserCreatedEventModel(entity.UserId, userValidateEntity.HashUUID, entity.Mail));
+        await mediator.Publish(userCreatedEvent, cancellationToken);
 
         return Result.Success();
     }

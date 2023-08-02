@@ -2,7 +2,7 @@
 using softrobotics.auth.application.UserHandler.Command;
 using softrobotics.auth.domain.Entity;
 using softrobotics.auth.infrastructure.Persistance;
-using softrobotics.shared.Common;
+using softrobotics.shared.Common.Helpers;
 
 namespace softrobotics.auth.test;
 
