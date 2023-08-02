@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using softrobotics.auth.application.Common.Model;
 using softrobotics.auth.application.UserHandler.Command;
 using softrobotics.auth.application.UserHandler.Queries;
+using softrobotics.shared.Models;
 
 namespace softrobotics.auth.api.Controllers
 {

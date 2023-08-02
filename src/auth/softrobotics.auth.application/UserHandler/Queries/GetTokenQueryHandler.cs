@@ -4,6 +4,7 @@ using softrobotics.auth.application.Common.Interface;
 using softrobotics.auth.application.Common.Model;
 using softrobotics.auth.domain.Entity;
 using softrobotics.shared.Common.Helpers;
+using softrobotics.shared.Models;
 
 namespace softrobotics.auth.application.UserHandler.Queries
 {

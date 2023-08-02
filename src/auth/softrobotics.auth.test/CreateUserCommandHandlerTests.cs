@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Moq;
 using softrobotics.auth.application.UserHandler.Command;
 using softrobotics.auth.domain.Entity;
 using softrobotics.auth.infrastructure.Persistance;
@@ -10,6 +12,7 @@ public class CreateUserCommandHandlerTests : IDisposable
 {
     private readonly DbContextOptions<SoftRoboticsDbContext> _options;
     private readonly SoftRoboticsDbContext _context;
+    private readonly Mock<IMediator> mockMediator;
 
     public CreateUserCommandHandlerTests()
     {
@@ -18,6 +21,7 @@ public class CreateUserCommandHandlerTests : IDisposable
             .Options;
 
         _context = new SoftRoboticsDbContext(_options);
+        mockMediator = new Mock<IMediator>();
     }
 
     [Fact]
@@ -31,19 +35,13 @@ public class CreateUserCommandHandlerTests : IDisposable
             Mail = "john.doe@example.com"
         };
 
-        // Create an in-memory database
-        var dbContextOptions = new DbContextOptionsBuilder<SoftRoboticsDbContext>()
-            .UseInMemoryDatabase(databaseName: "TestDatabase")
-            .Options;
-        var dbContext = new SoftRoboticsDbContext(dbContextOptions);
-
         var mapperConfig = new MapperConfiguration(cfg =>
         {
             cfg.CreateMap<CreateUserCommand, User>();
         });
         var mapper = mapperConfig.CreateMapper();
 
-        var createUserCommandHandler = new CreateUserCommandHandler(dbContext, mapper);
+        var createUserCommandHandler = new CreateUserCommandHandler(_context, mapper, mockMediator.Object);
 
         // Act
         var result = await createUserCommandHandler.Handle(createUserCommand, CancellationToken.None);
@@ -53,8 +51,8 @@ public class CreateUserCommandHandlerTests : IDisposable
         Assert.Equal((int)System.Net.HttpStatusCode.OK, result.StatusCode);
 
         // Verify that AddAsync and SaveToDbAsync methods were called
-        Assert.Single(dbContext.Users); // Ensure only one user was added to the database
-        var createdUser = await dbContext.Users.FirstOrDefaultAsync(u => u.Username == createUserCommand.Username);
+        Assert.Single(_context.Users); // Ensure only one user was added to the database
+        var createdUser = await _context.Users.FirstOrDefaultAsync(u => u.Username == createUserCommand.Username);
         Assert.NotNull(createdUser); // Ensure the user with the specified username exists in the database
         Assert.Equal(createUserCommand.Mail, createdUser.Mail); // Ensure the email matches
     }
@@ -84,7 +82,7 @@ public class CreateUserCommandHandlerTests : IDisposable
         });
         var mapper = mapperConfig.CreateMapper();
 
-        var createUserCommandHandler = new CreateUserCommandHandler(_context, mapper);
+        var createUserCommandHandler = new CreateUserCommandHandler(_context, mapper, mockMediator.Object);
 
         // Act
         var result = await createUserCommandHandler.Handle(createUserCommand, default);

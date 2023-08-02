@@ -1,4 +1,4 @@
-﻿namespace softrobotics.auth.application.Common.Model;
+﻿namespace softrobotics.shared.Models;
 
 public class JwtSettings
 {

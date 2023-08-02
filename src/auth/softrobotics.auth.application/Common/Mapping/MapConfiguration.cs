@@ -9,5 +9,6 @@ public class MapConfiguration : Profile
     public MapConfiguration()
     {
         CreateMap<User, CreateUserCommand>().ReverseMap();
+        CreateMap<CreateUserCommand, User>().ReverseMap();
     }
 }
